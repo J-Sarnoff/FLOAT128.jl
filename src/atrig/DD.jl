@@ -130,7 +130,6 @@ function atan12denom(x::DD)
 end
 @inline atan12of64(x::DD) = atan12numer(x) / atan12denom(x)
 
-
 function atan2to3numer(x::DD)
    DD(1.5746491607703442e-22, -5.35357483834068e-39) +
    (DD(0.9929146630650226, 1.8434410645424224e-18) +
@@ -151,7 +150,6 @@ function atan2to3denom(x::DD)
 end
 @inline atan2to3of64(x::DD) = atan2to3numer(x) / atan2to3denom(x)
 
-
 function atan3to4numer(x::DD)
     DD(1.3187186340364065e-20, -6.470728923559978e-37) +
     (DD(0.9862102481582604, 2.7745960767391508e-17) +
@@ -171,8 +169,6 @@ function atan3to4denom(x::DD)
     DD(0.022605741241803316, 6.327981810377862e-19)*x) *x)*x)*x)*x)*x
 end
 @inline atan3to4of64(x::DD) = atan3to4numer(x) / atan3to4denom(x)
-
-
 
 function atan4to5numer(x::DD)
 DD(3.4986867510923863e-19, -4.80043199494538e-37) +
