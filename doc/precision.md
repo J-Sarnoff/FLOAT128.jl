@@ -10,7 +10,7 @@
 
 
 #### Values in this table are still subject to change 
-
+##### *sig bits >= 106 should round correctly (unchecked)*
 
 
 | func | over | sig bits | rel err | ∝64 |  ∝Big |
