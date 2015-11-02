@@ -9,6 +9,10 @@
   ∝Big is time n(Float128)/fn(BigFloat_160)  similarly
 
 
+#### Values in this table are still subject to change 
+
+
+
 | func | over | sig bits | rel err | ∝64 |  ∝Big |
 |------|------|----------|---------|------|-------|
 | sqrt | 0..64G | 106 | 1.2e-32 | 1.6| 0.6 |
