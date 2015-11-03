@@ -33,3 +33,10 @@ end
      x,y
 end     
      
+@inline function eftRecipSqrt(a::FloatingPoint)
+     r = 1.0/a
+     x = sqrt(r)
+     t = fma(x,-x,r)
+     y = t / (x*2.0)
+     x,y
+end     
