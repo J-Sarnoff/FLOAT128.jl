@@ -147,5 +147,14 @@ function fldmod{T<:DD}(a::T,b::T)
     d,a
 end
 
-
+#=
+   This well-behaved bounded modulo implementation is from
+   The pitfalls of verifying floating-point computations
+   by David Monniaux, 2008 
+   http://arxiv.org/abs/cs/0701192v5
+=#
+function modulo{T<:DD}(a::T, lowerbound::T, upperbound::T)
+    delta = upperbound - lowerbound
+    a - (floor((a - lowerbound)/delta) * delta)
+end
 
