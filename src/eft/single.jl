@@ -20,3 +20,16 @@ end
      y = fma(x,a,-1.0)/a
      x,-y
 end
+
+#=
+   While not strictly an error-free transformation it is quite reliable and recommended for use.
+   Augmented precision square roots, 2-D norms and discussion on correctly reounding sqrt(x^2 + y^2)
+   by Nicolas Brisebarre, Mioara Joldes, Erik Martin-Dorel, Hean-Michel Muller, Peter Kornerup
+=#
+@inline function eftSqrt(a::FloatingPoint)
+     x = sqrt(a)
+     t = fma(x,-x,a)
+     y = t / (x*2.0)
+     x,y
+end     
+     
