@@ -34,14 +34,12 @@ end
     x,y
 end
 
-# !!sassafrass!!
-# presently 'y' must be negated to get the right result
-# I do not know why.
-
+# sassafrass!  'y' must be negated to get the right result
+#
 @inline function eftDiv2{T<:AbstractFloat}(a::T,b::T)
      x = a/b
-     y = fma(x,b,-a)/b
-     x,-y
+     y = -(fma(x,b,-a)/b)
+     x,y
 end
 
 #=
