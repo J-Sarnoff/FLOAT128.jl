@@ -11,14 +11,12 @@ function eftCube(a::AbstractFloat)
     x,y
 end
 
-# !!sassafrass!!
-# presently 'y' must be negated to get the right result
-# I do not know why.
+# !!sassafrass!! 'y' must be negated to get the right result
 #
 @inline function eftRecip(a::AbstractFloat)
      x = one(Float64)/a
-     y = fma(x,a,-1.0)/a
-     x,-y
+     y = -(fma(x,a,-1.0)/a)
+     x,y
 end
 
 #=
