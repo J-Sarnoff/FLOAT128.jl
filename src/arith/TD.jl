@@ -76,7 +76,20 @@ end
 # this is less rigorous addition method -- the
 # low order bits are dropped converting to DD
 
-@inline function (+){T<:TD}(a::T,b::T)
+function (+){T<:TD}(a::T,b::T)
+  s0,t0 = eftSum2(a.hi, b.hi)
+  s1,t1 = eftSum2(a.md, b.md)
+  s2,t2 = eftSum2(a.lo, b.lo)
+
+  s1,t0 = eftSum2(s1, t0)
+  s2,t0,t1 = eftSum3(s2, t0, t1)
+
+  s0,s1,s2 = fastRenormAs3(s0, s1, s2, (t0+t1))
+  TD(s0, s1, s2)
+end
+
+#= for testing against
+function (add){T<:TD}(a::T,b::T)
     s0 = a.hi + b.hi
     s1 = a.md + b.md
     s2 = a.lo + b.lo
