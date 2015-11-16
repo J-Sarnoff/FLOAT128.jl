@@ -11,7 +11,7 @@ function eftCube(a::AbstractFloat)
     x,y
 end
 
-# !!sassafrass!! 'y' must be negated to get the right result
+# sassafrass! 'y' must be negated to get the right result
 #
 @inline function eftRecip(a::AbstractFloat)
      x = one(Float64)/a
