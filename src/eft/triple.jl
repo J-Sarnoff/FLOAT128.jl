@@ -69,17 +69,15 @@ end
 # experimental (a/b)+c
 function eftFDA{T<:AbstractFloat}(a::T,b::T,c::T)
     x = (a/b)
-    y = fma(x,b,-a)/b
-    z = -y
-    eftSum3as2(x,z,c)
+    y = -(fma(x,b,-a)/b)
+    eftSum3as2(x,y,c)
 end
 
 # experimental (a/b)-c
 function eftFDS{T<:AbstractFloat}(a::T,b::T,c::T)
     x = (a/b)
-    y = fma(x,b,-a)/b
-    z = -y
-    eftSum3as2(x,z,-c)
+    y = -(fma(x,b,-a)/b)
+    eftSum3as2(x,y,-c)
 end
 
 
