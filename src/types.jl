@@ -74,9 +74,9 @@ one(::Type{DD})  = DD(one(Float64),zero(Float64))
 one(a::DD)       = one(DD) 
 
 #=
-FL127(a::Float64) = DD(a, zero(Float64))
+FL128(a::Float64) = DD(a, zero(Float64))
 
-function FL127{T<:Float64}(a::T, b::T)
+function FL128{T<:Float64}(a::T, b::T)
     hi = a + b
     lo = x - a
     lo = (a - (hi - lo)) + (b - lo)
@@ -85,8 +85,8 @@ end
 
 for T in (:AbstractFloat, Integer)
   @eval begin
-    FL127(a::($T)) = Float127(convert(Float64,a))
-    FL127(a::($T),b::($T)) = Float127(convert(Float64,a),convert(Float64,b))
+    FL128(a::($T)) = Float127(convert(Float64,a))
+    FL128(a::($T),b::($T)) = Float127(convert(Float64,a),convert(Float64,b))
   end
 end
 =#
