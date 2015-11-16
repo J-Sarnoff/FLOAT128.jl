@@ -88,7 +88,7 @@ function (+){T<:TD}(a::T,b::T)
   TD(s0, s1, s2)
 end
 
-#= for testing against
+# for testing the preceeding function
 function (add){T<:TD}(a::T,b::T)
     s0 = a.hi + b.hi
     s1 = a.md + b.md
@@ -125,6 +125,18 @@ end
 
 
 function (+)(a::TD,b::DD)
+  s0,t0 = eftSum2(a.hi, b.hi)
+  s1,t1 = eftSum2(a.md, b.lo)
+
+  s1,t0 = eftSum2(s1, t0)
+  s2,t0,t1 = eftSum3(a.lo, t0, t1)
+
+  s0,s1,s2 = fastRenormAs3(s0, s1, s2, (t0+t1))
+  TD(s0, s1, s2)
+end
+
+#=
+function (+)(a::TD,b::DD)
 
     s0 = a.hi + b.hi
     s1 = a.md + b.lo
@@ -155,6 +167,7 @@ function (+)(a::TD,b::DD)
 
     TD(s0, s1, s2)
 end
+=#
 
 (+)(a::DD,b::TD) = (+)(b,a)
 
