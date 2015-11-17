@@ -382,6 +382,24 @@ function expm1(a::DD)
    end
 end
 
+#=
+function exp_from_log(x::DD)
+    est = DD(exp(x.hi))
+    sq_x_minus_log = x_minus_log = x - log(est)
+    sq_x_minus_log *= x_minus_log
+    sq_x_minus_log *= 0.5
+    est = est * (1.0 + x_minus_log + sq_x_minus_log)
+    sq_x_minus_log = x_minus_log = x - log(est)
+    sq_x_minus_log *= x_minus_log
+    sq_x_minus_log *= 0.5
+    rev = est = est * (1.0 + x_minus_log + sq_x_minus_log)
+    sq_x_minus_log = x_minus_log = x - log(est)
+    sq_x_minus_log *= x_minus_log
+    sq_x_minus_log *= 0.5
+    est * (1.0 + x_minus_log + sq_x_minus_log)
+end
+=#
+
 dd_n_log_int = 64;
 dd_log_int = DD[
      DD(0.0, 0.0),
