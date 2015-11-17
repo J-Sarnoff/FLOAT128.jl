@@ -66,6 +66,24 @@ function eftFMS{T<:AbstractFloat}(a::T, b::T, c::T)
     x,y,z
 end
 
+function eftFMAas2{T<:AbstractFloat}(a::T, b::T, c::T)
+    x = fma(a,b,c)
+    u1,u2 = eftProd2(a,b)
+    a1,a2 = eftSum2(u2,c)
+    b1,b2 = eftSum2(u1,a1)
+    y = (b1-x)+b2+a2
+    x,y
+end
+
+function eftFMSas2{T<:AbstractFloat}(a::T, b::T, c::T)
+    x = fma(a,b,c)
+    u1,u2 = eftProd2(a,b)
+    a1,a2 = eftDiff2(u2,c)
+    b1,b2 = eftSum2(u1,a1)
+    y = (b1-x)+b2+a2
+    x,y
+end
+
 # experimental (a/b)+c
 function eftFDA{T<:AbstractFloat}(a::T,b::T,c::T)
     x = (a/b)
