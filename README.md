@@ -15,7 +15,7 @@
             as Float128 values; refit the approximation fixing one or few coeffs and repeat,
             each time fixing more coeffs or refixing some. And obtain a workable approximant.
 
-                 This is not the best way to generate and refit the approximations,
+>>>             This is not the best way to generate and refit the approximations,
                  and its better than inattention to fitting for machine evaluation.
                  Someone reading will be an expert on such matters -- 
                     you will want Sollya functions or Maple procedures to do the work.
