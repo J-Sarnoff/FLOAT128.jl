@@ -1,5 +1,7 @@
+sign(a::DD)    = sign(a.hi)
+signbit(a::DD) = signbit(a.hi)
 
-(-)(a::DD) = DD(-a.hi,-a.lo)
+(-)(a::DD)   = DD(-a.hi,-a.lo)
 (abs)(a::DD) = (a.hi >= zero(Float64) ? a : -a)
 
 @inline flipsign(a::DD,b::DD) = DD(flipsign(a.hi,b.hi), flipsign(a.lo,b.hi))
