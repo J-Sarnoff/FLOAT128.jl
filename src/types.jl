@@ -2,6 +2,12 @@ typealias SignedInt      Union{Int128,Int64,Int32,Int16}
 typealias SignedFloat    Union{Float64,Float32,Float16}
 typealias SignedNumber   Union{SignedFloat, SignedInt}
 
+convert(::Type{BigFloat}, a::AbstractString) = parse(BigFloat, a)
+convert{I<:Integer}(::Type{BigFloat}, a::I) = convert(BigFloat, string(a))
+convert{I<:Integer}(::Type{BigFloat}, a::Rational{I}) = 
+    convert(BigFloat,num(a)) / convert(BigFloat, den(a))
+
+    
 #=
 The internal structure is 128 bits given as a magnitude-ordered pair of Float64 values.
 The pair are *presumed* to be in cannonical form, where they do not overlap: hi⊕lo ≡ hi.
@@ -22,19 +28,7 @@ convert(::Type{DD}, a::Float32) = DD(Float64(a))
 convert(::Type{DD}, a::Float16) = DD(Float64(a))
 convert(::Type{DD}, a::Int32) = DD(Float64(a))
 convert(::Type{DD}, a::Int16) = DD(Float64(a))
-function convert(::Type{DD}, a::Int64)
-   isneg, aa= signbit(a), abs(a)
-   if aa < 0.0
-      DD(ldexp(Float64(typemin(Int64)>>11),11),0.0)
-   elseif aa <= 9007199254740992
-      DD(convert(Float64,a))
-   else
-      hi = ldexp(convert(Float64,(aa>>11)),11)
-      lo = convert(Float64, (aa & 4095))
-      hi,lo = eftSum2(hi,lo)
-      isneg ? DD(-hi,-lo) : DD(hi,lo)
-   end
-end
+convert{S<:Signed(::Type{DD}, a::S) = convert(TD, convert(BigFloat,string(a)))
 
 convert(::Type{Float64}, a::DD) = a.hi
 convert{T<:SignedInt}(::Type{DD}, a::T) = DD(convert(Float64,a))
@@ -45,13 +39,18 @@ convert(::Type{DD}, a::Tuple{Float64,Float64}) = DD(a[1],a[2])
 convert(::Type{Tuple}, a::DD) = (a.hi,a.lo)
 convert(::Type{Tuple{Float64,Float64}}, a::DD) = (a.hi,a.lo)
 
-convert{T<:Signed}(::Type{DD}, a::Rational{T}) = convert(DD,num(a)) / convert(DD,den(a))
-convert(::Type{BigFloat}, a::DD) = parse(BigFloat,string(a.hi)) + parse(BigFloat,string(a.lo))
+convert{T<:Signed}(::Type{DD}, a::Rational{T}) = convert(BigFloat, a)
+    
 function convert(::Type{DD}, a::BigFloat)
    hi = convert(Float64, a)
-   lo = convert(Float64, (a-parse(BigFloat,string(hi))))
+   hs = parse(BigFloat,string(hi))
+   lo = convert(Float64, (a-hs))
    DD(hi,lo)
 end   
+convert(::Type{BigFloat}, a::DD) = parse(BigFloat,string(a.hi)) + parse(BigFloat,string(a.lo))
+convert(::Type{DD}, a::AbstractString) = convert(DD, convert(BigFloat,a))
+convert{I<:Integer}(::Type{DD}, a::Rational) = convert(DD, convert(BigFloat,a))
+
 
 promote_rule(::Type{DD}, ::Type{Float64}) = DD
 promote_rule(::Type{DD}, ::Type{Float32}) = DD
@@ -136,13 +135,29 @@ convert{T<:SignedInt}(::Type{T}, a::TD) = convert(T,floor(a.hi))+convert(T,floor
 convert(::Type{TD}, a::DD) = TD(a.hi, a.lo, zero(Float64))
 convert(::Type{DD}, a::TD) = DD(a.hi, a.md)
 
-
+convert{S<:Signed(::Type{TD}, a::S) = convert(TD, convert(BigFloat,string(a)))
 
 convert(::Type{TD}, a::Tuple{Float64}) = TD(a[1])
 convert(::Type{TD}, a::Tuple{Float64,Float64}) = TD(a[1],a[2])
 convert(::Type{TD}, a::Tuple{Float64,Float64,Float64}) = TD(a[1],a[2],a[3])
 convert(::Type{Tuple}, a::TD) = (a.hi,a.md,a.lo)
 convert(::Type{Tuple{Float64,Float64,Float64}}, a::TD) = (a.hi,a.md,a.lo)
+
+convert{T<:Signed}(::Type{TD}, a::Rational{T}) = 
+    convert(BigFloat,string(num(a))) / convert(BigFloat,string(den(a)))
+
+function convert(::Type{TD}, a::BigFloat)
+   hi = convert(Float64, a)
+   hs = convert(BigFloat, string(hi))
+   md = convert(Float64, (a-hs))
+   ms = convert(BigFloat, string(md))
+   lo = convert(Float64, (a-hs-ms))
+   TD(hi,md,lo)
+end
+
+convert(::Type{BigFloat}, a::TD) = 
+    parse(BigFloat,string(a.hi)) + parse(BigFloat,string(a.md)) + parse(BigFloat,string(a.lo))
+convert(::Type{TD}, a::AbstractString) = convert(TD, convert(BigFloat,a))
 
 promote_rule(::Type{TD}, ::Type{Float64}) = TD
 promote_rule(::Type{TD}, ::Type{Float32}) = TD
