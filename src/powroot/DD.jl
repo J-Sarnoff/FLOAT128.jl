@@ -1,3 +1,5 @@
+(sqr)(a::Float64) = a*a
+(cub)(a::Float64) = a*a*a
 
 function (sqr){T<:DD}(a::T)
   t1,t2 = eftProd2(a.hi,a.hi)
