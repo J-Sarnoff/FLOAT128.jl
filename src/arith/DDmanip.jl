@@ -17,35 +17,17 @@ end
 @inline copysign(a::DD,b::DD) = copysign(a,b.hi)
 
 
-
-function (floor)(a::DD)
-    hi = floor(a.hi)
-    lo = 0.0
-    if (hi == a.hi)
-        lo = floor(a.lo)
-        hi,lo = eftSum2inOrder(hi,lo)
-    end
-    DD(hi,lo)
-end
-
-function (ceil)(a::DD)
-    hi = ceil(a.hi)
-    lo = 0.0
-    if (hi == a.hi)
-        lo = ceil(a.lo)
-        hi,lo = eftSum2inOrder(hi,lo)
-    end
-    DD(hi,lo)
-end
-
-function round(a::DD)
-    hi = round(a.hi)
-    lo = zero(Float64)
-    if (hi == a.hi)
-        lo = round(a.lo)
-        hi,lo = eftSum2inOrder(hi,lo)
-    end
-    DD(hi,lo)
+for fn in (:floor, :ceil, :round)
+  @eval begin
+    function ($fn)(a::DD)
+        hi = ($fn)(a.hi)
+        lo = 0.0
+        if (hi == a.hi)
+            lo = ($fn)(a.lo)
+            hi,lo = eftSum2inOrder(hi,lo)
+        end
+        DD(hi,lo)
+  end        
 end
 
 function (trunc)(a::DD)
