@@ -60,12 +60,16 @@ type Float128
     
     string, show, showcompact
     
-```haskell
-a dictionary of precomputed values
-      :zero, :one, :two, :three, :four, :sqrt2, :log2, :log10, :exp1, :pi, :twopi
-  reciprocals 
-      :half, :quarter, :_sqrt2, :_log2, :_log10, :_exp1, :_pi, :_twopi
-  add your own by converting from parsed BigFloat values
+```ruby
+lookup precomputed values
+        :zero, :one, :two, :three, :four, :sqrt2, :log2, :log10, :exp1, :pi, :twopi
+    and reciprocal values
+        :half, :quarter, :_sqrt2, :_log2, :_log10, :_exp1, :_pi, :_twopi
+        
+or add your own
+    Float128s[:m₃] = convert(Float128, parse(BigFloat,("1.98904379073654667384538388996114")));
+    Float128s[:m₃] == Float128(1.9890437907365466, 7.384538388996114e-17)
+
 ```    
 clean(x::Float128)
 
