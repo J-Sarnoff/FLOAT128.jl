@@ -1,4 +1,4 @@
-sign(a::DD) = sign(a.hi)
+sign(a::DD)    = sign(a.hi)
 signbit(a::DD) = signbit(a.hi)
 
 function ldexp(a::DD,xp::Int)
