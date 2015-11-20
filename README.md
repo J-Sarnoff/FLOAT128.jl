@@ -4,7 +4,7 @@
 
 >>  Float128 arithmetic compares favorably with BigFloat(128). Using Benchmarks.jl to measure relative speed: addition and subtraction run 10x, multiplication and division run ~2x faster without on-chip fma (fused multiply add) and considerably faster when fma ops are executed directly by the processor.
     
->>  The elementary functions are appropriately accurate, and, generally, not yet faster. I am changing the approach to get better performance, introducing indexed sequences of rational polynomial approximations.
+>>  The elementary functions are appropriately accurate, and, generally, not yet faster. I am changing the approach and witll introduce indexed sequences of rational polynomial approximations; that should run fast.
 
 On systems with processors that support fma instructions, all elementary functions should speed up noticably.
     
