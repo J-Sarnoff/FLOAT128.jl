@@ -1,3 +1,6 @@
+sign(a::DD) = sign(a.hi)
+signbit(a::DD) = signbit(a.hi)
+
 function ldexp(a::DD,xp::Int)
     DD(ldexp(a.hi,xp),ldexp(a.lo,xp))
 end
