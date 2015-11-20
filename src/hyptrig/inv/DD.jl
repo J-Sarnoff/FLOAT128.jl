@@ -1,4 +1,4 @@
-|a| <= 0.00275
+# |a| <= 0.00275
 function atanh_series(a::DD)
     x = a
     x2 = x*x
