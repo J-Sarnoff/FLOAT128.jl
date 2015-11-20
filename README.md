@@ -2,12 +2,12 @@
 ##### (a *working* work in progress)
 ######Float128 does arithimetic with 106 correctly rounded bits; other math gives 102 correct bits, for common values.
 
->>  Float128 arithmetic compares favorably with BigFloat(128). Using Benchmarks.jl to measure relative speed: addition and subtraction run 10x, multiplication and division run ~2x faster without on-chip fma (fused multiply add) and considerably faster when fma ops are executed directly by the processor.
+>  Float128 arithmetic compares favorably with BigFloat(128). Using Benchmarks.jl to measure relative speed: addition and subtraction run 10x, multiplication and division run ~2x faster without on-chip fma (fused multiply add) and considerably faster when fma ops are executed directly by the processor.
     
->>  The elementary functions are appropriately accurate. For very small arguments sin, cos, tan.., asin, acos, atan.. run ~4x; with other values they are not yet fast.  To fix that, a next step introduces indexed sequences of rational polynomial approximations for use within e.g. 0..1 or 1..2.  Although there is more to discern:
+>  The elementary functions are appropriately accurate. For very small arguments sin, cos, tan.., asin, acos, atan.. run ~4x; with other values they are not yet fast.  To fix that, a next step introduces indexed sequences of rational polynomial approximations for use within e.g. 0..1 or 1..2.  Although there is more to discern:
  
->>        (a) subdivde the interval, a unit inberval subdivides into 64 parts
->>        (b) widen each subdivision at both edges by ±1/350_000 to avoid noisy edges
+>>      (a) subdivde the interval, a unit inberval subdivides into 64 parts
+        (b) widen each subdivision at both edges by ±1/350_000 to avoid noisy edges
         (c) use a near minimax polynomial approximations, fitting a polynomial of degree 14 or
             fitting a rational polynomial with numerator and denominator each of degree 6
             (when one behaves a little better, usually that one is the rational polynomial)
