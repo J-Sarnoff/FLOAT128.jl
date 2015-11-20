@@ -48,3 +48,23 @@ clean(x::Float128)
 
 ### Use
 
+```julia
+using FLOAT128
+
+one = Float128(1);
+three = Float128(3);
+onefifth = Float128(0.2);
+twentynine = Float128(29);
+one / three
+one / ans
+sin(onefifth)
+asin(ans), (ans - asin(ans))/ans
+tanh(three)
+atanh(ans), (ans - atanh(ans))/ans
+exp(log(twentynine))
+log(exp(three))
+
+sqrt(Float128s[:pi])
+Float128s[:pi], ans*ans
+```
+
