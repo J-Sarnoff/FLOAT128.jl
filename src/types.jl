@@ -45,6 +45,14 @@ convert(::Type{DD}, a::Tuple{Float64,Float64}) = DD(a[1],a[2])
 convert(::Type{Tuple}, a::DD) = (a.hi,a.lo)
 convert(::Type{Tuple{Float64,Float64}}, a::DD) = (a.hi,a.lo)
 
+convert{T<:Signed}(::Type{DD}, a::Rational{T}) = convert(DD,num(a)) / convert(DD,den(a))
+convert(::Type{BigFloat}, a::DD) = parse(BigFloat,string(a.hi)) + parse(BigFloat,string(a.lo))
+function convert(::Type{DD}, a::BigFloat)
+   hi = convert(Float64, a)
+   lo = convert(Float64, (a-parse(BigFloat,string(hi))))
+   DD(hi,lo)
+end   
+
 promote_rule(::Type{DD}, ::Type{Float64}) = DD
 promote_rule(::Type{DD}, ::Type{Float32}) = DD
 promote_rule(::Type{DD}, ::Type{Int64}) = DD
