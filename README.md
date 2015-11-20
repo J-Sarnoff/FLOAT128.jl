@@ -1,7 +1,11 @@
 # FLOAT128.jl  
 ##### (a *working* work in progress)
 ######Float128 does arithimetic with 106 correctly rounded bits, other math yields 102 correct bits, with  reasonable values.
-    Float128 evaluation compares favorably with BigFloat(128). Using Benchmarks.jl to measure relative speed, this is faster: addition and subtraction are much faster (>>10x), multiplication and division are ~2x without on chip fma (fused multiply add) and considerably faster when fma opcodes are used.  
+
+    Float128 arithmetic compares favorably with BigFloat(128). Using Benchmarks.jl to measure relative speed: addition and subtraction run 10x, multiplication and division run ~2x faster without on-chip fma (fused multiply add) and considerably faster when fma ops are executed directly by the processor.
+    
+    The elementary functions are appropriately accurate, and, in general, not yet faster than BigFloat(128).
+On systems with processors that support fma instructions, all of these functions should speed up noticably.
     
     
     
