@@ -50,7 +50,11 @@ function convert(::Type{DD}, a::BigFloat)
 end   
 convert(::Type{BigFloat}, a::DD) = parse(BigFloat,string(a.hi)) + parse(BigFloat,string(a.lo))
 convert(::Type{DD}, a::AbstractString) = convert(DD, convert(BigFloat,a))
-convert{I<:Integer}(::Type{DD}, a::Rational{I}) = convert(DD, convert(BigFloat,a))
+convert{I<:Integer}(::Type{DD}, a::Rational{I}) = 
+    convert(DD, convert(BigFloat,a)))
+
+convert{I<:Integer}{::Type{Rational{I}}, a::DD) = 
+    convert(Rational{I},convert(BigFloat,a))
 
 
 promote_rule(::Type{DD}, ::Type{Float64}) = DD
