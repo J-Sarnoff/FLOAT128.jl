@@ -35,10 +35,9 @@
                   This is not the best way to generate approximations;
                   and rapt inattention is always worth considering.
 
-                  Someone who is reading this will be quite expert.
-                  We, the others, need to use Sollya functions or
-                  Maple procedures that exist to make generating
-                  these machine maths much more straightforward.
+                  My amastery of this acknowledged, there are Maple
+                  procdures and Sollya functions written do this,
+                  making making machine maths become better done. 
 ```
 
 
