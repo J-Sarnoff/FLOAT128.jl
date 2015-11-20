@@ -12,7 +12,7 @@
 
 >  Float128 arithmetic compares favorably with BigFloat(128). Using Benchmarks.jl to measure relative speed: addition and subtraction run 10x, multiplication and division run ~2x faster without on-chip fma (fused multiply add) and considerably faster when fma ops are executed directly by the processor.
     
->  The elementary functions are appropriately accurate. For very small arguments sin, cos, tan.., asin, acos, atan.. run ~4x; with other values they are not yet fast.  To fix that, a next step introduces indexed sequences of rational polynomial approximations.  Although there is more to discern:
+>  The elementary functions are appropriately accurate. For very small arguments sin, cos, tan.., asin, acos, atan.. run ~4x; with other values they are not yet fast.  To fix that, a next step uses more indexed sequences of rational polynomial approximations.  Although there is more to discern:
  
 >         (a) subdivde the interval, a unit inberval subdivides into 64 parts
         (b) widen each subdivision at both edges by ±1/350_000 to avoid noisy edges
