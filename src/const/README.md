@@ -5,13 +5,12 @@
 
 ```julia
 Float128s = Dict{Symbol,DD}( :zero => dd_zero, ...)
+    # direct values
     :zero, :quarter, :half, :one, :two, :three, :four,
     :sqrt2, :log2,:log10,:exp1, :e
-    :π, :pi, :twopi, :catalan 
+    :π, :pi, :twopi, :catalan, :γ, :eulergamma,
     :φ, :golden, 
-    :γ,:eulergamma,
     # reciprocal values
     :_two, :_three, :_four,
-    :_log2,
-    :_pi, :_twopi
+    :_log2, :_pi, :_twopi
 ```
