@@ -1,5 +1,5 @@
 ## FLOAT128.jl 
-###### <center>Jeffrey Sarnoff</center>
+<center>Jeffrey Sarnoff</center>
 ##### (a *working* work in progress)
 ######Float128 does arithimetic with 106 correctly rounded bits; other math gives 102 correct bits, for common values.
 
