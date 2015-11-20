@@ -106,8 +106,8 @@ function nroot{T<:DD,N<:Integer}(a::T,p::N)
    flp = convert(Float64,p)
    f2p = (T)(flp,zero(typeof(a.hi)))
    r = a.hi^(-fl1/flp)
-   r += r * (fl1 - (a * (npowr(r,p)))) / f2p
-   r += r * (fl1 - (a * (npowr(r,p)))) / f2p
+   r += r * (fl1 - (a * (npow(r,p)))) / f2p
+   r += r * (fl1 - (a * (npow(r,p)))) / f2p
 
    recip(r)
 end
