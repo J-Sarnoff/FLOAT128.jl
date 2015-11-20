@@ -79,7 +79,7 @@ const dd_1_over_golden_ratio = DD(0.6180339887498949,-5.432115203682506e-17);
 const dd_catalan = DD(0.915965594177219,3.747558421514984e-18);
 const dd_eulergamma = DD(0.5772156649015329,-4.942915152430645e-18);
 
-
+#=
 # E8 massergies (Zamolodchikov)
 const dd_m1 = DD() #
 const dd_m2 = DD(1.618033988749895, -5.432115203682506e-17); #
@@ -89,7 +89,7 @@ const dd_m5 = DD(); # 4
 const dd_m6 = DD(); # 4
 const dd_m7 = DD(); # 8
 const dd_m8 = DD(); # 8
-
+=#
 
 
 
