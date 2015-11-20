@@ -88,42 +88,6 @@ function (+){T<:TD}(a::T,b::T)
   TD(s0, s1, s2)
 end
 
-# for testing the preceeding function
-function (add){T<:TD}(a::T,b::T)
-    s0 = a.hi + b.hi
-    s1 = a.md + b.md
-    s2 = a.lo + b.lo
-
-    v0 = s0 - a.hi
-    v1 = s1 - a.md
-    v2 = s2 - a.lo
-
-    u0 = s0 - v0
-    u1 = s1 - v1
-    u2 = s2 - v2
-
-    w0 = a.hi - u0
-    w1 = a.md - u1
-    w2 = a.lo - u2
-
-    u0 = b.hi - v0
-    u1 = b.md - v1
-    u2 = b.lo - v2
-
-    t0 = w0 + u0
-    t1 = w1 + u1
-    t2 = w2 + u2
-
-    s1,t0 = eftSum2(s1, t0)
-    s2,t0,t1 = eftSum3(s2, t0, t1)
-    t0,t2 = eftSum2(t0, t2)
-    t0 = t0 + t1
-
-    s0,s1,s2 = renormAs3(s0, s1, s2, t0)
-    TD(s0, s1, s2)
-end
-
-
 function (+)(a::TD,b::DD)
   s0,t0 = eftSum2(a.hi, b.hi)
   s1,t1 = eftSum2(a.md, b.lo)
@@ -134,41 +98,6 @@ function (+)(a::TD,b::DD)
   s0,s1,s2 = fastRenormAs3(s0, s1, s2, (t0+t1))
   TD(s0, s1, s2)
 end
-
-#=
-function (+)(a::TD,b::DD)
-
-    s0 = a.hi + b.hi
-    s1 = a.md + b.lo
-
-    v0 = s0 - a.hi
-    v1 = s1 - a.md
-
-    u0 = s0 - v0
-    u1 = s1 - v1
-
-    w0 = a.hi - u0
-    w1 = a.md - u1
-
-    u0 = b.hi - v0
-    u1 = b.lo - v1
-
-    t0 = w0 + u0
-    t1 = w1 + u1
-
-    s1,t0 = eftSum2(s1, t0)
-    s2,t0,t1 = eftSum3(a.lo, t0, t1)
-    t0 += t1
-
-    #s0,s1,s2 = renormAs3(s0, s1, s2, t0)
-    s2 += t0
-    s1,s2 = eftSum2inOrder(s1,s2)
-    s0,s1 = eftSum2inOrder(s0,s1)
-
-    TD(s0, s1, s2)
-end
-=#
-
 (+)(a::DD,b::TD) = (+)(b,a)
 
 
