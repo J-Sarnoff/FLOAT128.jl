@@ -1,5 +1,5 @@
 # FLOAT128.jl  
-##### (a *working* work in progress)
+##### (a *working* work in progress) **usually working**
 ######Float128 does arithimetic with 106 correctly rounded bits; other math gives 102 correct bits, for common values.
 
 >  Float128 arithmetic compares favorably with BigFloat(128). Using Benchmarks.jl to measure relative speed: addition and subtraction run 10x, multiplication and division run ~2x faster without on-chip fma (fused multiply add) and considerably faster when fma ops are executed directly by the processor.
@@ -18,7 +18,7 @@
 >             This is not the best way to generate and refit the approximations,
               and its better than inattention to fitting for machine evaluation.
                   Someone reading will be an expert on such matters -- 
-                      you want Sollya functions or Maple procedures to do the work.
+                  you want Sollya functions or Maple procedures to do the work.
 
                     
                     
