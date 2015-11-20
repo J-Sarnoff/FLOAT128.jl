@@ -1,6 +1,5 @@
-#=
-#    Internal Use Only
-=#
+sign(a::TD)    = sign(a.hi)
+signbit(a::TD) = signbit(a.hi)
 
 (-)(a::TD) = TD(-a.hi,-a.md,-a.lo)
 (abs)(a::TD) = (a.hi >= zero(Float64) ? a : -a)
