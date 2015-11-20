@@ -8,7 +8,7 @@
 ######        **(a *working* work in progress)**
 
 
-     Float128 arithmetic with 105 bit accuracy, elementary functions with 102+ bits.
+     Internal arithmetic is right to 105 bits; internal functions are right to 102 bits.
       
      Float128 arithmetic compares favorably with BigFloat(128).Using Benchmarks.jl
      for relative speeds: addition and subtraction run 10x, multiplication and division
