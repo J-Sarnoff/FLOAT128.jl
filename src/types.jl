@@ -52,8 +52,10 @@ convert(::Type{DD}, a::AbstractString) = convert(DD, convert(BigFloat,a))
 convert{I<:Integer}(::Type{DD}, a::Rational{I}) = 
     convert(DD, convert(BigFloat,a))
 
-convert{I<:Integer}(::Type{Rational{I}}, a::DD) = convert(Rational{I},convert(BigFloat,a))
-
+convert{I<:BigInt}(::Type{Rational{I}}, a::DD)    = 
+    convert(Rational{I},convert(BigFloat,a))
+convert{I<:SignedInt}(::Type{Rational{I}}, a::DD) = 
+    trunc(T, convert(BigFloat, convert(Rational{BigInt}, a)))
 
 promote_rule(::Type{DD}, ::Type{Float64}) = DD
 promote_rule(::Type{DD}, ::Type{Float32}) = DD
