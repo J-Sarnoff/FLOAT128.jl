@@ -52,9 +52,10 @@ clean(x::Float128)
 using FLOAT128
 
 one = Float128(1);
-three = Float128(BigFloat(3));
+three = Float128(3//1);
 onefifth = Float128(0.2);
-five = BigFloat(1) / convert(BigFloat, ans))
+BigFloat5 = BigFloat(1) / convert(BigFloat, ans))
+five = Float128(BigFloat5)
 twentynine = Float128(29);
 one / three
 one / ans
