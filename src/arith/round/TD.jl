@@ -1,6 +1,5 @@
 
-
-for fn in (:floor, :ceil, :round)
+for (fn) in (:floor, :ceil, :round)
   @eval begin
     function ($fn)(a::TD)
         hi = ($fn)(a.hi)
