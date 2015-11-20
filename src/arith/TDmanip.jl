@@ -26,41 +26,24 @@ copysign(a::TD,b::DD) = copysign(a,b.hi)
 copysign(a::DD,b::TD) = copysign(a.hi,b.hi)
 
 
-function (floorceil)(fn::Function, a::TD)
-    hi = fn(a.hi)
-    md = lo = zero(Float64)
-    if (hi == a.hi)
-        md = fn(a.md)
-        hi,md = eftSum2inOrder(hi,md)
-        if md == a.md
-            lo = fn(a.lo)
-            md,lo = eftSum2inOrder(md,lo)
+for fn in (:floor, :ceil, :round)
+  @eval begin
+    function ($fn)(a::TD)
+        hi = ($fn)(a.hi)
+        md = lo = zero(Float64)
+        if (hi == a.hi)
+            md = ($fn)(a.md)
             hi,md = eftSum2inOrder(hi,md)
+            if md == a.md
+                lo = ($fn)(a.lo)
+                md,lo = eftSum2inOrder(md,lo)
+                hi,md = eftSum2inOrder(hi,md)
+            end
         end
+        TD(hi,md,lo)
     end
-    TD(hi,md,lo)
+  end    
 end
-
-(floor)(a::TD) = floorceil(floor,a)
-(ceil)(a::TD) = floorceil(ceil,a)
-
-
-function round(a::TD)
-    hi = round(a.hi)
-    md = lo = zero(Float64)
-    if (hi == a.hi)
-        md = round(a.md)
-        hi,md = eftSum2inOrder(hi,md)
-        if md == a.md
-            lo = round(a.lo)
-            md,lo = eftSum2inOrder(md,lo)
-            hi,md = eftSum2inOrder(hi,md)
-        end
-    end
-    TD(hi,md,lo)
-end
-#(round)(a::TD) = floorceil(round,a)
-
 
 @inline function (trunc)(a::TD)
     a.hi >= zero(Float64) ? floor(a) : ceil(a)
