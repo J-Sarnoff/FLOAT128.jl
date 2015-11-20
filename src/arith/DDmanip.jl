@@ -1,9 +1,3 @@
-isnan(a::DD) = isnan(a.hi)
-isinf(a::DD) = isinf(a.hi)
-isfinite(a::DD) = isfinite(a.hi)
-
-sign(a::DD) = sign(a.hi)
-signbit(a::DD) = signbit(a.hi)
 
 (-)(a::DD) = DD(-a.hi,-a.lo)
 (abs)(a::DD) = (a.hi >= zero(Float64) ? a : -a)
