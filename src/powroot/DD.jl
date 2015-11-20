@@ -51,7 +51,6 @@ function npow{T<:Float64,N<:Integer}(a::T,n::N)
     s
 end
 
-
 function npow{T<:DD,N<:Integer}(a::T,n::N)
     if n == zero(N)
         if a.hi == zero(typeof(a.hi))
