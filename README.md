@@ -8,11 +8,14 @@
 ######        **(a *working* work in progress)**
 
 
->  Float128 arithmetic is performed internally with 105 bit accuracy, elementary functions with 102+ bit accuracy.
+>  Float128 arithmetic is performed with 105 bit accuracy, elementary functions with 102+ bit accuracy.
 
->  Float128 arithmetic compares favorably with BigFloat(128). Using Benchmarks.jl to measure relative speed: addition and subtraction run 10x, multiplication and division run ~2x faster without on-chip fma (fused multiply add) and considerably faster when fma ops are executed directly by the processor.
+>  Float128 arithmetic compares favorably with BigFloat(128). Using Benchmarks.jl for relative speeds:
+addition and subtraction run 10x, multiplication and division run ~2x faster without on-chip fma
+(fused multiply add) and considerably faster when fma ops are executed directly by the processor.
     
->  The elementary functions are appropriately accurate. For very small arguments sin, cos, tan.., asin, acos, atan.. run ~4x; with other values they are not yet fast.  To remedy that, a next step uses indexed sequences of rational polynomial approximations:
+>  The elementary functions are appropriately accurate. For very small arguments trig functions run ~4x;
+with other values they are not yet fast.  A next step is to use indexed polynomial approximations:
  
 >         (a) subdivde the interval, a unit inberval subdivides into 64 parts
         (b) widen subdivisions at both ends to quell noise (e.g. ±1/262_144)
