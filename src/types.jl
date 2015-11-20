@@ -3,7 +3,6 @@ typealias SignedFloat    Union{Float64,Float32,Float16}
 typealias SignedNumber   Union{SignedFloat, SignedInt}
 
 convert(::Type{BigFloat}, a::AbstractString) = parse(BigFloat, a)
-convert(::Type{BigFloat}, a::BigInt) = convert(BigFloat, string(a))
 convert{I<:Integer}(::Type{BigFloat}, a::I) = convert(BigFloat, string(a))
 convert{I<:Integer}(::Type{BigFloat}, a::Rational{I}) = 
     convert(BigFloat,convert(BigInt,num(a))) / convert(BigFloat,convert(BigInt, den(a)))
@@ -53,8 +52,7 @@ convert(::Type{DD}, a::AbstractString) = convert(DD, convert(BigFloat,a))
 convert{I<:Integer}(::Type{DD}, a::Rational{I}) = 
     convert(DD, convert(BigFloat,a))
 
-convert{I<:Integer}{::Type{Rational{I}}, a::DD) = 
-    convert(Rational{I},convert(BigFloat,a))
+convert{I<:Integer}(::Type{Rational{I}}, a::DD) = convert(Rational{I},convert(BigFloat,a))
 
 
 promote_rule(::Type{DD}, ::Type{Float64}) = DD
