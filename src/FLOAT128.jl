@@ -63,13 +63,13 @@ include("exp/TD.jl")
 
 # trig, arctrig
 include("trig/DD.jl")
-include("atrig/DD.jl")
-include("atrig/TD.jl")
+include("trig/arctrig/DD.jl")
+include("trig/arctrig/TD.jl")
 
 # trigh
 include("trigh/DD.jl")
 include("trigh/TD.jl")
-include("atrigh/DD.jl")
+include("trigh/arctrigh/DD.jl")
 
 # io
 include("io/DD.jl")
