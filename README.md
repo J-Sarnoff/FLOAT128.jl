@@ -51,8 +51,8 @@ Float128 is desgined to glean good advantage from processor supported fma.
 ##### type Float128
 
       convert
-      from        Float64|32|16, Int128|64|32|16, BigFloat
-      into        BigFloat, convert to nearest Float64|32|16 Int128|64|32|16
+      from        Float64|32|16, Int128|64|32|16, Rational, BigFloat
+      into        Float64|32|16, Int128|64|32|16, BigFloat
     
       ldexp, frexp, abs, sign, signbit, 
       ==, !=, <, <=, >=, >, isless, isequal
