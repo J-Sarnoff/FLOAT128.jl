@@ -49,7 +49,7 @@ function convert(::Type{DD}, a::BigFloat)
 end   
 convert(::Type{BigFloat}, a::DD) = parse(BigFloat,string(a.hi)) + parse(BigFloat,string(a.lo))
 convert(::Type{DD}, a::AbstractString) = convert(DD, convert(BigFloat,a))
-convert{I<:Integer}(::Type{DD}, a::Rational) = convert(DD, convert(BigFloat,a))
+convert{I<:Integer}(::Type{DD}, a::Rational{I}) = convert(DD, convert(BigFloat,a))
 
 
 promote_rule(::Type{DD}, ::Type{Float64}) = DD
@@ -135,7 +135,7 @@ convert{T<:SignedInt}(::Type{T}, a::TD) = convert(T,floor(a.hi))+convert(T,floor
 convert(::Type{TD}, a::DD) = TD(a.hi, a.lo, zero(Float64))
 convert(::Type{DD}, a::TD) = DD(a.hi, a.md)
 
-convert{S<:Signed(::Type{TD}, a::S) = convert(TD, convert(BigFloat,string(a)))
+convert{S<:Signed}(::Type{TD}, a::S) = convert(TD, convert(BigFloat,string(a)))
 
 convert(::Type{TD}, a::Tuple{Float64}) = TD(a[1])
 convert(::Type{TD}, a::Tuple{Float64,Float64}) = TD(a[1],a[2])
