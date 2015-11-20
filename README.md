@@ -6,8 +6,8 @@
     
 >>  The elementary functions are appropriately accurate. For very small arguments sin, cos, tan.., asin, acos, atan.. run ~4x; with other values they are not yet fast.  To fix that, a next step introduces indexed sequences of rational polynomial approximations for use within e.g. 0..1 or 1..2.  Although there is more to discern:
  
-        (a) subdivde the interval, a unit inberval subdivides into 64 parts
-        (b) widen each subdivision at both edges by ±1/350_000 to avoid noisy edges
+>>        (a) subdivde the interval, a unit inberval subdivides into 64 parts
+>>        (b) widen each subdivision at both edges by ±1/350_000 to avoid noisy edges
         (c) use a near minimax polynomial approximations, fitting a polynomial of degree 14 or
             fitting a rational polynomial with numerator and denominator each of degree 6
             (when one behaves a little better, usually that one is the rational polynomial)
