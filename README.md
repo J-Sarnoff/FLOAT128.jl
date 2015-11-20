@@ -1,6 +1,6 @@
 ## FLOAT128.jl 
 
-######*Bringing you 100 bit arithmetic and 100 bit elementary functions, accurate to ~0.51 ulp.*
+######*Bringing you 100 bit arithmetic and 100 bit elementary functions, accurate to ~0.52 ulp.*
 ```ruby
                               Jeffrey Sarnoff            2015-Nov-20
 ```
@@ -8,7 +8,7 @@
 ######        **(a *working* work in progress)**
 
 
->  Float128 arithmetic is performed internally with 105 bit accuracy, and elementary functions with 102 bits.
+>  Float128 arithmetic is performed internally with 105 bit accuracy, elementary functions with 102 bit accuracy.
 
 >  Float128 arithmetic compares favorably with BigFloat(128). Using Benchmarks.jl to measure relative speed: addition and subtraction run 10x, multiplication and division run ~2x faster without on-chip fma (fused multiply add) and considerably faster when fma ops are executed directly by the processor.
     
