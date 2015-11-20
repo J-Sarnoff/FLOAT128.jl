@@ -1,4 +1,3 @@
-
 function sincos(x::TD)
   s,c=sincos(DD(x))
   slo,clo = TD(sin(x.lo)),TD(cos(x.lo))
