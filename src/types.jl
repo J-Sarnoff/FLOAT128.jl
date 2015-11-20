@@ -3,9 +3,10 @@ typealias SignedFloat    Union{Float64,Float32,Float16}
 typealias SignedNumber   Union{SignedFloat, SignedInt}
 
 convert(::Type{BigFloat}, a::AbstractString) = parse(BigFloat, a)
+convert(::Type{BigFloat}, a::BigInt) = convert(BigFloat, string(a))
 convert{I<:Integer}(::Type{BigFloat}, a::I) = convert(BigFloat, string(a))
 convert{I<:Integer}(::Type{BigFloat}, a::Rational{I}) = 
-    convert(BigFloat,num(a)) / convert(BigFloat, den(a))
+    convert(BigFloat,convert(BigInt,num(a))) / convert(BigFloat,convert(BigInt, den(a)))
 
     
 #=
