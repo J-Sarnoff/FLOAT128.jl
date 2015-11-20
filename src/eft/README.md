@@ -9,8 +9,8 @@
 #### Error-Free Transformations
 
 These are information presevering operations that restructure aritmetic interactions of numerical quantities.
-Simultaneously noiseless and clarifying, they are easy to apply and resiliant in use.
+Simultaneously noiseless and clarifying, they are easy to apply and resiliant in use (see /src/arith/op/).
 
-*This package is __error-free transformation__ reliant.* *(see /src/arith/op/)*
+*This package is __error-free transformation__ reliant.*
 
 
