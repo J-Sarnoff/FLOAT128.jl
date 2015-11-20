@@ -1,6 +1,6 @@
 # FLOAT128.jl  
 ##### (a *working* work in progress)
-######Float128 evalutes arithmetic ops with 106 [elementary functions with 102] bit accuracy given reasonable values.
+######Float128 evalutes arithmetic ops with 106 (elementary functions with 102) bit accuracy, with reasonable values.
     Float128 evaluation compares favorably with BigFloat(128). Using Benchmarks.jl to measure relative speed, this is faster: addition and subtraction are much faster (>>10x), multiplication and division are ~2x without on chip fma (fused multiply add) and considerably faster when fma opcodes are used.  
     
     
