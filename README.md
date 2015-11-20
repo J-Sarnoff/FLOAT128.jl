@@ -31,7 +31,7 @@
             or a few coeffs and repeat.  Each time fix more coeffs or shake+refix
             one already fixed. And so obtain a workable approximant.
 
-```c
+```
                   This is not the best way to generate approximations;
                   and rapt inattention is always worth considering.
 
