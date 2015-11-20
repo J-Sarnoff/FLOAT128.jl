@@ -6,7 +6,7 @@
     
 >>  The elementary functions are appropriately accurate, and, generally, not yet faster. I am changing the approach to get better performance, introducing indexed sequences of rational polynomial approximations.
 
-On systems with processors that support fma instructions, all of these functions should speed up noticably.
+On systems with processors that support fma instructions, all elementary functions should speed up noticably.
     
     
     
