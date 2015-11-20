@@ -25,11 +25,10 @@ import Base: convert, promote_rule,
 
 export Float128, clean, Float128s,
 # for development only
-fnTest, fnTest2, hilo, hml, nearest12
+fnTest, fnTest2, hilo, hml, nearest12, DD, TD
 
 # include
 
-include("config.jl")
 include("types.jl")
 
 # error-free transformations by number of args in & vals out
