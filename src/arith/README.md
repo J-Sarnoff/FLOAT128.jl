@@ -1,6 +1,7 @@
-|file | supports |
+|dir | supports |
 |-----|----------|
-| DD.jl | slightly better than double-double arithmetic |
-| TD.jl | triple-double arithmetic for DD.jl |
-| DDmanip.jl | low level double-double manipulations |
-| TDmanip.jl | low level triple-double manipulations |
+| op | slightly better than reference double-double arithmetic |
+|    | and triple-double arithmetic for internal calculations |
+| round | floor, ceil, round |
+| moddiv | div, fld, cld, rem, mod, divrem, fldmod  |
+| sign | operations involving the sign of a number |
