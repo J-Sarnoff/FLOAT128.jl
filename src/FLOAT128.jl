@@ -57,7 +57,7 @@ include("arith/round/DD.jl")
 include("arith/round/TD.jl")
 
 # integer powers, reciprocal roots
-include("pow/DD.jl")
+include("powroot/DD.jl")
 
 # log, exp
 include("exp/DD.jl")
