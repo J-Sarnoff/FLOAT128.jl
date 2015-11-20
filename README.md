@@ -2,7 +2,7 @@
 
 ######*Bringing you 100 bit arithmetic and 100 bit elementary functions, accurate to ~0.52 ulp.*
 ```ruby
-                              Jeffrey Sarnoff            2015-Nov-20
+                         Jeffrey Sarnoff            2015-Nov-20
 ```
 ##
 ######        **(a *working* work in progress)**
