@@ -17,6 +17,41 @@ function (cub){T<:DD}(a::T)
   a * DD(t1,t6)
 end
 
+function npow{T<:Float64,N<:Integer}(a::T,n::N)
+    if n == zero(N)
+        if a == zero(T)
+            throw(DomainError)
+        else
+            one(typeof(a))
+        end
+    end
+
+    r = a
+    s = one(T)
+    m = abs(n)
+
+    if m > one(N)
+        # binary exponentiation
+        while (m > 0)
+            if m%2 == one(N)
+                s = s*r
+            end
+            m >>= 1
+            if m > zero(N)
+                r = sqr(r)
+            end
+        end
+    else
+        s = r
+    end
+
+    if (n < zero(N))
+        s = recip(s)
+    end
+    s
+end
+
+
 function npow{T<:DD,N<:Integer}(a::T,n::N)
     if n == zero(N)
         if a.hi == zero(typeof(a.hi))
