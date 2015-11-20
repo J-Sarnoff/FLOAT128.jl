@@ -15,7 +15,7 @@ for (fn) in (:floor, :ceil, :round)
         end
         TD(hi,md,lo)
     end
-  end    
+  end
 end
 
 @inline function (trunc)(a::TD)
