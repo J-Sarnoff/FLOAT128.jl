@@ -1,6 +1,3 @@
-sign(a::TD)    = sign(a.hi)
-signbit(a::TD) = signbit(a.hi)
-
 function ldexp(a::TD,xp::Int)
     TD(ldexp(a.hi,xp),ldexp(a.md,xp),ldexp(a.lo,xp))
 end
