@@ -40,9 +40,6 @@ include("eft/triple.jl")
 include("const/DD.jl")
 include("const/TD.jl")
 
-# internal
-include("util/domainCheck.jl")
-
 # magnitude: comparison and subnumeric composition
 include("value/parts/DD.jl")
 include("value/parts/TD.jl")
