@@ -8,33 +8,38 @@
 ######        **(a *working* work in progress)**
 
 
->  Float128 arithmetic is performed with 105 bit accuracy, elementary functions with 102+ bit accuracy.
-
->  Float128 arithmetic compares favorably with BigFloat(128). Using Benchmarks.jl for relative speeds:
-addition and subtraction run 10x, multiplication and division run ~2x faster without on-chip fma
-(fused multiply add) and considerably faster when fma ops are executed directly by the processor.
+     Float128 arithmetic is performed with 105 bit accuracy, elementary functions with 102+ bits.
+      
+     Float128 arithmetic compares favorably with BigFloat(128).Using Benchmarks.jl
+     for relative speeds: addition and subtraction run 10x, multiplication and division
+     run ~2x faster without on-chip fma (fused multiply add) and when fma ops are handled
+     directly by the processor, better yet.
     
->  The elementary functions are appropriately accurate. For very small arguments trig functions run ~4x;
-with other values they are not yet fast.  A next step is to use indexed polynomial approximations:
+     The elementary functions are appropriately accurate. For very small arguments trig
+     functions run ~4x; with other values they are not yet fast.  A next step is to use
+     indexed sequences of polynomial approximations in essential regions of a domain:
  
->         (a) subdivde the interval, a unit inberval subdivides into 64 parts
+        (a) subdivde the interval, a unit inberval subdivides into 64 parts
         (b) widen subdivisions at both ends to quell noise (e.g. ±1/262_144)
         (c) use a near minimax polynomial approximations, fitting a polynomial 
             of degree 14 or fitting a rational polynomial with numerator and 
             denominator each of degree 6 (sometimes the rational approx behaves
             better -- the simple polynomial tracks more nicely on rare occasion).
+        
         (d) push on the approximation coefficients so they become exactly
             representable, as Float128 values; refit the approximation fixing one
             or a few coeffs and repeat.  Each time fix more coeffs or shake+refix
             one already fixed. And so obtain a workable approximant.
 
->             This is not the best way to generate and refit the approximations,
-              and its better than inattention to fitting for machine evaluation.
-                  Someone reading will be an expert on such matters -- 
-                  you want Sollya functions or Maple procedures to do the work.
+```c
+                  This is not the best way to generate approximations;
+                  and rapt inattention is always worth considering.
 
-                    
-                    
+                  Someone who is reading this will be quite expert.
+                  We, the others, need to use Sollya functions or
+                  Maple procedures that exist to make generating
+                  these machine maths much more straightforward.
+```
 
 
 Float128 is desgined to glean good advantage from processor supported fma.
