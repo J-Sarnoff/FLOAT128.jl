@@ -1,6 +1,8 @@
 ## FLOAT128.jl 
-| | |Jeffrey Sarnoff| | |
-|-|-|---------------|-|-|
+
+     | Jeffrey Sarnoff |  
+     |-----------------|
+     |  2015-Nov-20    |  
 
 ##### (a *working* work in progress)
 ######Float128 does arithimetic with 106 correctly rounded bits; other math gives 102 correct bits, for common values.
