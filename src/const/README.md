@@ -3,6 +3,7 @@
 | DD.jl| double-double constants, precompiled value dictionary |
 | TD.jl| triple-double constants, precompiled value dictionary |
 
+```julia
 Float128s = Dict{Symbol,DD}(
     :zero    => dd_zero,
     :quarter => dd_qrtr,
@@ -32,3 +33,4 @@ Float128s = Dict{Symbol,DD}(
     :_pi    => dd_1_over_pi,
     :_twopi => dd_1_over_twopi,
 );
+```
