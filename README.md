@@ -3,7 +3,7 @@
                               Jeffrey Sarnoff            2015-Nov-20
 ```
 ######        (a *working* work in progress)
-######Float128 is arithmetic with 106 correctly rounded bits and 102 bit correct elementary functions.
+######Float128 is arithmetic with 106, and elementary functions with 102 correctly rounded bits.
 
 >  Float128 arithmetic compares favorably with BigFloat(128). Using Benchmarks.jl to measure relative speed: addition and subtraction run 10x, multiplication and division run ~2x faster without on-chip fma (fused multiply add) and considerably faster when fma ops are executed directly by the processor.
     
