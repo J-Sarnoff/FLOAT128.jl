@@ -3,7 +3,7 @@
 | single.jl| error-free transformations of 1 arg |
 | double.jl| error0free transformations of 2 args |
 | triple.jl | error-free transformations of 3 args |
-| complex.jl| error-free transforms for complex nums |
+| complex.jl| error-free transforms with complex numbers |
 
 
 #### Error-Free Transformations
