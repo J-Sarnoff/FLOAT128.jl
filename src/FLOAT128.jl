@@ -45,14 +45,20 @@ include("const/TD.jl")
 include("util/domainCheck.jl")
 
 # magnitude: comparison and subnumeric composition
-include("mag/DD.jl")
-include("mag/TD.jl")
+include("value/parts/DD.jl")
+include("value/parts/TD.jl")
+include("value/cmp/DD.jl")
+include("value/cmp/TD.jl")
 
 # arithmetic and arithmetic support
 include("arith/DD.jl")
 include("arith/TD.jl")
 include("arith/DDmanip.jl")
 include("arith/TDmanip.jl")
+include("arith/moddiv/DD.jl")
+include("arith/moddiv/TD.jl")
+include("arith/round/DD.jl")
+include("arith/round/TD.jl")
 
 # integer powers, reciprocal roots
 include("pow/DD.jl")
