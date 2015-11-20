@@ -7,7 +7,7 @@ function show(io::IO, x::DD)
 end
 
 function showcompact(io::IO, x::DD)
-    hi=string(x.hi)
+    hi== @sprintf("%g.7",hi)
     print(io, hi)
 end
 
