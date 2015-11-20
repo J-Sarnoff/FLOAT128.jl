@@ -28,7 +28,7 @@ convert(::Type{DD}, a::Float32) = DD(Float64(a))
 convert(::Type{DD}, a::Float16) = DD(Float64(a))
 convert(::Type{DD}, a::Int32) = DD(Float64(a))
 convert(::Type{DD}, a::Int16) = DD(Float64(a))
-convert{S<:Signed(::Type{DD}, a::S) = convert(TD, convert(BigFloat,string(a)))
+convert{S<:Signed}(::Type{DD}, a::S) = convert(TD, convert(BigFloat,string(a)))
 
 convert(::Type{Float64}, a::DD) = a.hi
 convert{T<:SignedInt}(::Type{DD}, a::T) = DD(convert(Float64,a))
