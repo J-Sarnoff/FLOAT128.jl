@@ -60,14 +60,13 @@ type Float128
     
     string, show, showcompact
     
-dict Float128s{Symbol, Float128}
-
-    :zero, :one, :two, :three, :four, :sqrt2, :log2, :log10, :exp1, :pi, :twopi
-    
-    reciprocals :half, :quarter, :_sqrt2, :_log2, :_log10, :_exp1, :_pi, :_twopi
-    
-    add your own by converting from parsed BigFloat values
-    
+```
+a dictionary of precomputed values
+  (a)  :zero, :one, :two, :three, :four, :sqrt2, :log2, :log10, :exp1, :pi, :twopi
+  (b) *reciprocals*
+      :half, :quarter, :_sqrt2, :_log2, :_log10, :_exp1, :_pi, :_twopi
+  (c) add your own by converting from parsed BigFloat values
+```    
 clean(x::Float128)
 
     zeros the low order part when it approaches eps(eps(high order part))
