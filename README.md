@@ -60,7 +60,7 @@ type Float128
     
     string, show, showcompact
     
-```ruby
+```java
 lookup precomputed values
         :zero, :one, :two, :three, :four, :sqrt2, :log2, :log10, :exp1, :pi, :twopi
     and reciprocal values
