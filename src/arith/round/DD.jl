@@ -9,6 +9,7 @@ for (fn) in (:floor, :ceil, :round)
             hi,lo = eftSum2inOrder(hi,lo)
         end
         DD(hi,lo)
+    end    
   end        
 end
 
