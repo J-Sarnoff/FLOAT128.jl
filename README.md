@@ -1,5 +1,6 @@
 ## FLOAT128.jl 
-######*bringing you 100 bit arithmetic and 100 bit elementary functions, all bits given correctly.*
+
+######*Bringing you 100 bit arithmetic and 100 bit elementary functions, all of them correct.*
 ```ruby
                               Jeffrey Sarnoff            2015-Nov-20
 ```
