@@ -75,7 +75,7 @@ include("trig/arctrig/TD.jl")
 # trigh
 include("trigh/DD.jl")
 include("trigh/TD.jl")
-include("trigh/arctrigh/DD.jl")
+include("trigh/archyp/DD.jl")
 
 # io
 include("io/DD.jl")
