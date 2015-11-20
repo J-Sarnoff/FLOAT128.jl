@@ -18,34 +18,7 @@ end
 end
 
 @inline (==)(a::DD,b::DD) = (a.hi == b.hi) && (a.lo == b.lo)
-@inline (<)(a::DD,b::DD) = (a.hi < b.hi) || (a.hi==b.hi && a.lo<b.lo)
-@inline (<=)(a::DD,b::DD) =  (a.hi < b.hi) || (a.hi==b.hi && a.lo<=b.lo)
-@inline (>)(a::DD,b::DD) = (a.hi > b.hi) || (a.hi==b.hi && a.lo>b.lo)
+@inline (< )(a::DD,b::DD) = (a.hi < b.hi) || (a.hi==b.hi && a.lo<b.lo)
+@inline (<=)(a::DD,b::DD) = (a.hi < b.hi) || (a.hi==b.hi && a.lo<=b.lo)
+@inline (> )(a::DD,b::DD) = (a.hi > b.hi) || (a.hi==b.hi && a.lo>b.lo)
 @inline (>=)(a::DD,b::DD) = (a.hi > b.hi) || (a.hi==b.hi && a.lo>=b.lo)
-
-
-
-
-function (floor)(a::DD)
-    hi = floor(a.hi)
-    lo = 0.0
-    if (hi == a.hi)
-        lo = floor(a.lo)
-        hi,lo = eftSum2inOrder(hi,lo)
-    end
-    DD(hi,lo)
-end
-
-function (ceil)(a::DD)
-    hi = ceil(a.hi)
-    lo = 0.0
-    if (hi == a.hi)
-        lo = ceil(a.lo)
-        hi,lo = eftSum2inOrder(hi,lo)
-    end
-    DD(hi,lo)
-end
-
-@inline function (trunc)(a::DD)
-    a.hi >= zero(F) ? floor(a) : ceil(a)
-end
