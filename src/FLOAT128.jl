@@ -67,15 +67,15 @@ include("pow/DD.jl")
 include("exp/DD.jl")
 include("exp/TD.jl")
 
-# trig, arctrig
+# trig, inverse fns
 include("trig/DD.jl")
 include("trig/arctrig/DD.jl")
 include("trig/arctrig/TD.jl")
 
-# trigh
-include("trigh/DD.jl")
-include("trigh/TD.jl")
-include("trigh/archyp/DD.jl")
+# hyperbolic trig, inverse fns
+include("hyptrig/DD.jl")
+include("hyptrig/TD.jl")
+include("hyptrig/archyp/DD.jl")
 
 # io
 include("io/DD.jl")
