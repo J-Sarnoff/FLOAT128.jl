@@ -18,8 +18,10 @@
         
             saves half the terms and reduces the argument: if x>0, y < x/2
         
-              
 
+   log( (1 - x) / (1 + x) ) = (-2*x) * ( 1+ (x^2)/3 + (x^4)/5 + (x^6)/7 + ... ) 
+                            = (-2*x) * 2F1(1;1/2;3/2;x^2)                        hypergeometric
+ 
     
 
 For arguments close to unity, approaching from above or from below, this approximation is valid:
