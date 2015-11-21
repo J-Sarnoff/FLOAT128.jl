@@ -23,6 +23,19 @@
         
             saves half the terms and reduces the argument: if x>0, y < x/2
         
+      function logOfOnePlusX(x)
+         y = x /( 2 + x ); z = x
+         j = 0
+         s = 0
+         while j<1_000 && z!= s 
+            z = s; twojp1 = j+j+1
+            j = j+1
+            yj = y^(twojp1)
+            s = s + yj/twojp1
+         end
+         2*s, j
+       end
+
 
    log( (1 - x) / (1 + x) ) = (-2*x) * ( 1+ (x^2)/3 + (x^4)/5 + (x^6)/7 + ... ) 
                             = (-2*x) * 2F1(1,1/2;3/2;x^2)                        hypergeometric
@@ -65,3 +78,6 @@ these can be used for the evaluation
   
   w(z,n)  = (2*n - 1) * ( ((-(2+z)) + (2*(sqrt(1+z)))) / (2)  )
   w1(z,n) = w(z,n)    - ( (z^2) / (8 * (2*n+1)) * (sqrt(1+z)) )
+
+
+
