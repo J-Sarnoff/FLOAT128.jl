@@ -8,25 +8,22 @@
 ######        **(a *working* work in progress)**
 
 
-     Internal arithmetic is correct to 105 bits, elementary functions to 102 bits.
+     Internal arithmetic is right to 105 bits, elementary functions to 102 bits.
      Arithmetic precision is constrained by the size of the Float128 significand,
-     which spans 106 bits. It is not possible to do, store and carry arithmetic
-     results that are provably correct in the 106th bit without introducing 
-     substantial delay into the processing streams.
+     which spans 106 bits. Getting the lsb correct would introduce substantial
+     delay to the processing streams.  That is not an acceptable alternative.
      
-     With arithmetic operations giving 105 reliably significant bits, 
-     at least 2 trailing bits (often 3, at most 4) contribute to proper
-     rounding of elementary function evaluation.  So elementary functions
-     (very nearly) always should be correct through the 101st bit. Some
-     functions will have forms of approximation that provide 102 good bits.
-     Reliably correct rounding to 103 bits is doing this right.
+     With arithmetic reliably giving 105 correct bits, and knowing that a few of
+     trailing bits (at least 2, at most 4) are needed for rational rounding, One
+     may expect elementary functions to be correctly rounded into their 101st bit.
+     (very nearly always). Reliably correct rounding to 103 bits is doing this right.
      
       
      Float128 arithmetic compares favorably with BigFloat(128).Using Benchmarks.jl
-     for relative speeds: addition and subtraction run 10x, multiplication and division
-     run ~2x faster without on-chip fma (fused multiply add) and when fma ops are handled
-     directly by the processor, better yet.
-    
+     to find relative timings: Float128 addition and subtraction are 10x faster.
+     Multiplication and division, about  2x ... on systems with chips that compute
+     fma (fused multiply add) directly, Float128 multiply, divide are faster yet.
+     
      The elementary functions are appropriately accurate. For very small arguments trig
      functions run ~4x; with other values they are not yet fast.  A next step is to use
      indexed sequences of polynomial approximations in essential regions of a domain:
@@ -38,8 +35,8 @@
             denominator each of degree 6 (sometimes the rational approx behaves
             better -- the simple polynomial tracks more nicely on rare occasion).
         
-        (d) push on the approximation coefficients so they become exactly
-            representable, as Float128 values; refit the approximation fixing one
+        (d) push on the approximated coefficients to use values that are exactly
+            reppresentable as a Float128 value: refit the approximation fixing one
             or a few coeffs and repeat.  Each time fix more coeffs or shake+refix
             one already fixed. And so obtain a workable approximant.
 
