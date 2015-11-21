@@ -1,0 +1,10 @@
+For arguments close to unity, approaching from above or from below, this approximation is valid:
+
+  x st |x-1| small,   log(x) ~ (x-1) / sqrt(x)
+  with Float64,       log(x) - ((x-1)/sqrt(x)) 
+       becomes zero over
+       (1.0 - 0.425e-7) .. (1.0 + 0.425e-7)  
+         (0.9999999575) .. (1.0000000425)
+         
+  with DD, becomes zero over
+      DD(1.0, -0.5e-16) .. DD(1.0, 0.5e-16)
