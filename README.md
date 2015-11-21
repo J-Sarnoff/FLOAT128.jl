@@ -8,7 +8,39 @@
 ######        **(a *working* work in progress)**
 
 
-     Internal arithmetic is right to 105 bits; internal functions are right to 102 bits.
+     Internal arithmetic is correct to 105 bits, elementary functions to 102 bits.
+     Arithmetic precision is constrained by the size of the Float128 significand,
+     which spans 106 bits. It is not possible to do, store and carry arithmetic
+     results that are provably correct in the 106th bit without introducing 
+     substantial delay into the processing streams.
+     
+     With arithmetic operations giving 105 reliably significant bits, 
+     at least 2 trailing bits (often 3, at most 4) contribute to proper
+     rounding of elementary function evaluation.  So elementary functions
+     (very nearly) always should be correct through the 101st bit. Some
+     functions will have forms of approximation that provide 102 good bits.
+     Reliably correct rounding to 103 bits is doing this right.
+     
+     
+     
+     
+     
+     
+     None will assure offer an additional
+     (105-4) 102nd no more than 103 (105-2) no more than 105-2 = 103 correct bits at best and at least 101 correct bits.
+     
+     not less than 101  bits  at best 103 (105-2) bit accuracy, and at least 101 good bits.
+     
+     ften 102 bits, at least 101   lest 195determination
+     provide roundingtrailing bits bitusually 3) trailingthe few least
+     maintain 105 correct bits, and the well known need to examine at least
+     three trailing bits (one should be sticky -- ours is more tacky than sticky)
+     for reasoned rounding, elementary functions offer ~102 correct bits.
+     
+     correct reliable bits.
+     evaluation arithmetic
+     better than 105
+     correct bi The limits on arithmetic precision are 
       
      Float128 arithmetic compares favorably with BigFloat(128).Using Benchmarks.jl
      for relative speeds: addition and subtraction run 10x, multiplication and division
