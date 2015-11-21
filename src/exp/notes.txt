@@ -1,3 +1,6 @@
+    log(0)    log(1/e)    log(1)    log(e)    log(e^n)    log(Inf)
+    -Inf        -1          0         1           n         +Inf
+
 For arguments close to unity, approaching from above or from below, this approximation is valid:
 
   x st |x-1| small,   log(x) ~ (x-1) / sqrt(x)
