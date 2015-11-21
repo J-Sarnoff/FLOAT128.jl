@@ -2,6 +2,11 @@
     -Inf        -1          0         1           n         +Inf
 
 
+    d(log(x))    1
+    --------- = ----
+       dx        x
+       
+
     x > 0,         +log( 1 / x ) =   -log( x )
     x,y > 0,       +log( x * y ) =   +log( x ) + log( y )
     x,y > 0,       +log( x / y ) =   +log( x ) - log( y )
