@@ -11,3 +11,11 @@ For arguments close to unity, approaching from above or from below, this approxi
          
   with DD, becomes zero over
       DD(1.0, -0.5e-16) .. DD(1.0, 0.5e-16)
+
+
+
+  with lgx = f(x) == log(x)
+  
+       lgx( exp(1) ) - lgx( 1/exp(1) )                                      =  2
+                       lgx( 1/exp(1) ) - lgx( 1/exp(3) )                    =  2
+                                         lgx( 1/exp(3) ) - lgx( 1/exp(5) )  =  2
