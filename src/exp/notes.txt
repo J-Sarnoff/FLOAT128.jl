@@ -15,6 +15,8 @@ For arguments close to unity, approaching from above or from below, this approxi
 
 
   with lgx = f(x) == log(x)
+                                         lgx( exp(k) ) == k
+       
   
        lgx( exp(1) ) - lgx( 1/exp(1) )                                      =  2
                        lgx( 1/exp(1) ) - lgx( 1/exp(3) )                    =  2
