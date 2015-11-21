@@ -14,7 +14,7 @@ for (fn) in (:floor, :ceil, :round)
 end
 
 function (trunc)(a::DD)
-    a.hi >= zero(F) ? floor(a) : ceil(a)
+    a.hi >= zero(Float64) ? floor(a) : ceil(a)
 end
 
 """
