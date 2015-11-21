@@ -20,8 +20,9 @@
         
 
    log( (1 - x) / (1 + x) ) = (-2*x) * ( 1+ (x^2)/3 + (x^4)/5 + (x^6)/7 + ... ) 
-                            = (-2*x) * 2F1(1;1/2;3/2;x^2)                        hypergeometric
- 
+                            = (-2*x) * 2F1(1,1/2;3/2;x^2)                        hypergeometric
+                                                                                 change variables
+    log( y ) = (-2)*((1-y)/(1+y))*(2F1(1,1/2; 3/2; ((1-y)/(1+y))^2 )            for 0 < y < Inf                                          
     
 
 For arguments close to unity, approaching from above or from below, this approximation is valid:
