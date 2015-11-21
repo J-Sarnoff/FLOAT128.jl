@@ -48,3 +48,10 @@ For arguments close to unity, approaching from above or from below, this approxi
         lgx( exp(5) ) - lgx( exp(3) )                  =  2
                         lgx( exp(3) ) - lgx( exp(1) )  =  2
                         
+
+
+|Arg(1 - (z^2 / (2 + z)^2))| < pi
+these can be used for the evaluation
+  w_n(z)  = (2n - 1) * ( ((-(2+z)) + (2*(sqrt(1+z)))) / (2) )
+  w_n1(z) = w_n(z)   - ( (z^2) / (8 * (2n+1)) * (sqrt(1+z)) )
+  
