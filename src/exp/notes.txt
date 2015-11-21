@@ -3,7 +3,7 @@
 
 
     d(log(x))    1
-    --------- = ----
+    --------- = ----                              x*log(x)
        dx        x
        
 
@@ -11,6 +11,15 @@
     x,y > 0,       +log( x * y ) =   +log( x ) + log( y )
     x,y > 0,       +log( x / y ) =   +log( x ) - log( y )
     x > -          +log( x ^ v ) =   +log( x ) *  v
+
+
+
+for x > 2
+    fr,ex = frexp(x)
+    log(x) = (ex * log(2)) + log(fr)   where  [0.5 <= fr < 1.0)
+for x     
+    
+    
 
 
 
