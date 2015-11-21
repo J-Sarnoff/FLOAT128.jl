@@ -6,6 +6,20 @@
     x,y > 0,       +log( x * y ) =   +log( x ) + log( y )
     x,y > 0,       +log( x / y ) =   +log( x ) - log( y )
     x > -          +log( x ^ v ) =   +log( x ) *  v
+
+
+
+   log1p(x) = log( 1 + x ) using  log1p(x) = 2 * log1p( x / (1 + sqrt(1 + x)) )
+   
+   log1p(x) = log( 1 + x ) using y st (1 + x) = (1 + y) / (1 - y)
+                                            y =       x / (2 + x)
+        whrere
+        log( (1+y)/(1-y) ) = 2 * Sum[j>=0]( (y^(2*j + 1)) / (2*j + 1) )
+        
+            saves half the terms and reduces the argument: if x>0, y < x/2
+        
+              
+
     
 
 For arguments close to unity, approaching from above or from below, this approximation is valid:
