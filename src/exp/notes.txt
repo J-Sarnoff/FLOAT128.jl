@@ -56,4 +56,4 @@ these can be used for the evaluation
   w_n1(z) = w_n(z)   - ( (z^2) / (8 * (2n+1)) * (sqrt(1+z)) )
   
   w(z,n)  = (2*n - 1) * ( ((-(2+z)) + (2*(sqrt(1+z)))) / (2)  )
-  w1(z,n) = w(z)      - ( (z^2) / (8 * (2*n+1)) * (sqrt(1+z)) )
+  w1(z,n) = w(z,n)    - ( (z^2) / (8 * (2*n+1)) * (sqrt(1+z)) )
