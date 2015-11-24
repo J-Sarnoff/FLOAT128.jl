@@ -1,5 +1,5 @@
 
-@inline function eftSum2{T<:AbstractFloat}(a::T, b::T)
+@inline function eftSum2{T<:Float64}(a::T, b::T)
   x = a + b
   t = x - a
   y = (a - (x - t)) + (b - t)
@@ -7,14 +7,14 @@
 end
 
 
-@inline function eftSum2inOrder{T<:AbstractFloat}(a::T, b::T)
+@inline function eftSum2inOrder{T<:Float64}(a::T, b::T)
   x = a + b
   y = b - (x - a)
   x,y
 end
 
 
-@inline function eftDiff2{T<:AbstractFloat}(a::T, b::T)
+@inline function eftDiff2{T<:Float64}(a::T, b::T)
   x = a - b
   t = x - a
   y = (a - (x - t)) - (b + t)
@@ -22,13 +22,13 @@ end
 end
 
 
-@inline function eftDiff2inOrder{T<:AbstractFloat}(a::T, b::T)
+@inline function eftDiff2inOrder{T<:Float64}(a::T, b::T)
   x = a - b
   y = (a - x) - b
   x,y
 end
 
-@inline function eftProd2{T<:AbstractFloat}(a::T, b::T)
+@inline function eftProd2{T<:Float64}(a::T, b::T)
     x = a * b
     y = fma(a, b, -x)
     x,y
@@ -36,7 +36,7 @@ end
 
 # sassafrass!  'y' must be negated to get the right result
 #
-@inline function eftDiv2{T<:AbstractFloat}(a::T,b::T)
+@inline function eftDiv2{T<:Float64}(a::T,b::T)
      x = a/b
      y = -(fma(x,b,-a)/b)
      x,y
