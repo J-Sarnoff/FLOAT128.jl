@@ -13,7 +13,7 @@ end
 
 # sassafrass! 'y' must be negated to get the right result
 #
-@inline function eftRecip(a:Float64)
+@inline function eftRecip(a::Float64)
      x = one(Float64)/a
      y = -(fma(x,a,-1.0)/a)
      x,y
