@@ -1,6 +1,6 @@
 # 0 < x <= 1
 # approximate
-# use log1p(TD(x) for accuracy
+# use DD(log1p(TD(x))) for accuracy
 function log1p(x::DD)
     y = x / (2.0+x)
     yy = y * y
