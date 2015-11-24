@@ -1,10 +1,10 @@
 # 0 < x <= 1
 function log1p(x::DD)
     j = 1
-    y = x / (2+x)
+    y = x / (2.0+x)
     s = zero(DD)
     z = x
-    while (s != z) && j<100
+    while (s != z) && j<130
        z = s
        k = y^j / j
        s += k
