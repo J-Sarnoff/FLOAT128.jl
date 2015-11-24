@@ -4,13 +4,13 @@ by Stef Graillat, Valérie Ménissier-Morain, Information and Computation 216 (2
 =#
 
 
-function eftSumCplx2{T<:AbstractFloat}(x::Complex{T}, y::Complex{T})
+function eftSumCplx2{T<:Float64}(x::Complex{T}, y::Complex{T})
     re1, re2 = eftSum2(x.re, y.re)
     im1, im2 = eftSum2(x.im, y.im)
     T(re1, im1), T(re2, im2)
 end
 
-function eftProdCmplx2{T<:AbstractFloat}(x::Complex{T}, y::Complex{T})
+function eftProdCmplx2{T<:Float64}(x::Complex{T}, y::Complex{T})
     z1, h1 = eftProd2(x.re, y.re)
     z2, h2 = eftProd2(x.im, y.im)
     z3, h3 = eftProd2(x.re, y.im)
