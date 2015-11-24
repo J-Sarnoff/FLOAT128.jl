@@ -38,6 +38,7 @@ for x
         log(1+x) == log( (1+y)/(1-y) ) = 2 * Sum[j>=0]( (y^(2*j + 1)) / (2*j + 1) )
         
             saves half the terms and reduces the argument: if x>0, y < x/2
+            [j>=0] 2*j+1 is 1,3,5,7,...
         
       function logOfOnePlusX(x)
          y = x /( 2 + x ); z = x
