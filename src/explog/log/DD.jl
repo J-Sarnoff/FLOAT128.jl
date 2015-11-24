@@ -9,7 +9,7 @@ function log1p(x::DD)
     z = x
     j = 3.0
     ypowj *= yy
-    for i in 1:70
+    for i in 1:73
        z = s
        k = ypowj / j
        s += k
