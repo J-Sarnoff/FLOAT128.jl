@@ -21,6 +21,13 @@ for x
     
     
 
+      function logx(x::DD)
+          n = trailing_zeros(prevpow2(floor(Int,x.hi)))
+          fr,ex = frexp(x); y = ldexp(fr,ex-n)
+          logy = log(y)
+          loga = DD(n) * (FLOAT128.dd_log2)
+          logy+loga
+       end
 
 
    log1p(x) = log( 1 + x ) using  log1p(x) = 2 * log1p( x / (1 + sqrt(1 + x)) )
