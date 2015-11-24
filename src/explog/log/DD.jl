@@ -16,7 +16,7 @@ function log1p(x::DD)
        j += 2.0
        ypowj *= yy
     end
-    while (s != z) && j<80
+    while (s != z) && j<80.0
        z = s
        k = ypowj / j
        s += k
