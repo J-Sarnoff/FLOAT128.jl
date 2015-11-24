@@ -1,11 +1,6 @@
-# 0 < x <= 1 # good to a few ulp
+# 0 < x <= 1
 function log1p(x::DD)
-    u = one(DD)+x
-    if (u!=one(DD)) 
-       log(u) * (x / (u-one(DD)))
-    else 
-       x
-    end
+
 end
 
 # 0.0 < x <= 0.5
@@ -30,4 +25,14 @@ function logGT2(x::DD)
   log2pow = ex * dd_log2
   log1minus = log(fr)   
   log2pow + log1minus
+end
+
+function log(x::DD)
+   if DD(1.0, -5.0e-17) <= x <= DD(1.0, 5.0e-17)
+      (x - 1.0) / sqrt(x)
+   elseif x.hi > 1.0
+      logGT1(x)
+   else x.hi > 1.0
+      -logGT1(dd_recip(x))
+   end
 end
