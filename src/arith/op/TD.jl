@@ -27,7 +27,7 @@
   s0, s1, s2                       # s0, s1, s2, s3 # for renormAs4
 end
 
-function renorm{T<:Float64}(c0::T, c1::T, c2::T)
+@inline function renorm{T<:Float64}(c0::T, c1::T, c2::T)
   s0=s1=s2=zero(Float64)
 
   if isinf(c0)
@@ -52,7 +52,7 @@ function renorm{T<:Float64}(c0::T, c1::T, c2::T)
   s0, s1, s2
 end
 
-function renorm{T<:Float64}(c0::T, c1::T)
+@inline function renorm{T<:Float64}(c0::T, c1::T)
    eftSum2inOrder(c0,c1)
 end
 
@@ -154,7 +154,7 @@ end
 # this is less rigorous multiply method -- the
 # low order bits are dropped converting to DD
 
-@inline function (*){T<:TD}(a::T,b::T)
+function (*){T<:TD}(a::T,b::T)
   p0,q0 = eftProd2(a.hi, b.hi)
   p1,q1 = eftProd2(a.hi, b.md)
   p2,q2 = eftProd2(a.md, b.hi)
@@ -182,7 +182,7 @@ end
 end
 
 
-@inline function (*)(a::TD,b::DD)
+function (*)(a::TD,b::DD)
   p0,q0 = eftProd2(a.hi, b.hi)
   p1,q1 = eftProd2(a.hi, b.lo)
   p2,q2 = eftProd2(a.md, b.hi)
@@ -213,8 +213,38 @@ end
   TD(p0,p1,s0)
 end
 
-@inline (*)(a::DD,b::TD) = (*)(b,a)
+(*)(a::DD,b::TD) = (*)(b,a)
 
+function (*)(a::TD,b::Float64)
+  p0,q0 = eftProd2(a.hi, b)
+  p1,q1 = 0,0
+  p2,q2 = eftProd2(a.md, b)
+  p4,q4 = 0,0
+  p5,q5 = eftProd2(a.lo, b)
+
+  # Start Accumulation
+  p1,p2 = eftSum2(p2, q0)
+
+  # Six-Three Sum  of p2, q1, q2, p3, p4, p5
+  p2,q1 = eftSum2(p2, q2)
+  # compute (s0, s1, s2) = (p2, q1, q2) + (p3, p4, p5)
+  s0,t0 = eftSum2(p2, p5)
+  s2 = q2
+  s1,t0 = eftSum2(q1, t0)
+  s2 += t0
+
+  # O(eps^3) order terms
+  s1 += q5
+  #p0,p1,s0 = renormAs3(p0, p1, s0, s1+s2)
+  s1 += t0
+  s0,s1 = eftSum2inOrder(s0,s1)
+  p1,s0 = eftSum2inOrder(p1,s0)
+  p0,p1 = eftSum2inOrder(p0,p1)
+
+  TD(p0,p1,s0)
+end
+
+(*)(a::Float64,b::TD) = (*)(b,a)
 
 # reciprocation
 
