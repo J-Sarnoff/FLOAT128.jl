@@ -6,18 +6,24 @@ function log1p(x::TD)
     ypowj = y
     s = y
     z = x
-    j = 3
+    j = 3.0
     ypowj *= yy
-    while (s != z) && j<130
+    for i in 1:105
        z = s
        k = ypowj / j
        s += k
-       j += 2
+       j += 2.0
+       ypowj *= yy
+    end
+    while (s != z) && j<280.0
+       z = s
+       k = ypowj / j
+       s += k
+       j += 2.0
        ypowj *= yy
     end
     mulby2(s)
 end
-
 # 1 < x 
 function logGT1(x::TD)
   fr,ex = frexp(x)
