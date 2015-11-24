@@ -1,5 +1,11 @@
-# 0 < x <= 1
+# 0 < x <= 1 # good to a few ulp
 function log1p(x::DD)
+    u = one(DD)+x
+    if (u!=one(DD)) 
+       log(u) * (x / (u-one(DD)))
+    else 
+       x
+    end
 end
 
 # 0.0 < x <= 0.5
