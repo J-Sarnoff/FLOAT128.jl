@@ -34,7 +34,7 @@ for x
    
    log1p(x) = log( 1 + x ) using y st (1 + x) = (1 + y) / (1 - y)
                                             y =       x / (2 + x)
-        whrere
+        where
         log( (1+y)/(1-y) ) = 2 * Sum[j>=0]( (y^(2*j + 1)) / (2*j + 1) )
         
             saves half the terms and reduces the argument: if x>0, y < x/2
