@@ -9,22 +9,23 @@ end
 
 function parse(::Type{TD}, str::AbstractString)
     if !(startswith(str,TD_typename))
-        throw(ErrorException("$(TD_typename) not found in $(str)"))
-    end
-    s = str[10:(end-1)]
-    himdlo = split(s,',')
-    if length(hilo)==1
-        himdlo = [himdlo[1],"0.0","0.0"]
-    elseif length(himdlo)==2
-        himdlo = [himdlo[1],himdlo[2],"0.0"]
-    end
+        convert(TD, parse(BigFloat,str))
+    else
+        s = str[10:(end-1)]
+        himdlo = split(s,',')
+        if length(hilo)==1
+            himdlo = [himdlo[1],"0.0","0.0"]
+        elseif length(himdlo)==2
+            himdlo = [himdlo[1],himdlo[2],"0.0"]
+        end
 
-    shi,smd,slo = himdlo[1],himdlo[2],himdlo[3]
-    hi = parse(Float64,shi)
-    md = parse(Float64,smd)
-    lo = parse(Float64,slo)
-    hi,md,lo = eftSum3(hi,md,lo)
-    TD(hi,md,lo)
+        shi,smd,slo = himdlo[1],himdlo[2],himdlo[3]
+        hi = parse(Float64,shi)
+        md = parse(Float64,smd)
+        lo = parse(Float64,slo)
+        hi,md,lo = eftSum3(hi,md,lo)
+        TD(hi,md,lo)
+    end    
 end
 
 
