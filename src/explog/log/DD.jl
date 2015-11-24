@@ -1,6 +1,16 @@
 # 0 < x <= 1
 function log1p(x::DD)
-
+    j = 1
+    y = x / (2+x)
+    s = zero(DD)
+    z = x
+    while (s != z) && j<100
+       z = s
+       k = y^j / j
+       s += k
+       j += 2
+    end
+    mulby2(s)
 end
 
 # 0.0 < x <= 0.5
