@@ -9,14 +9,14 @@ function log1p(x::DD)
     z = x
     j = 3.0
     ypowj *= yy
-    for i in 1:35
+    for i in 1:75
        z = s
        k = ypowj / j
        s += k
        j += 2.0
        ypowj *= yy
     end
-    while (s != z) && j<80.0
+    while (s != z) && j<250.0
        z = s
        k = ypowj / j
        s += k
