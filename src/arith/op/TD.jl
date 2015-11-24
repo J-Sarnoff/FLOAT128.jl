@@ -215,11 +215,10 @@ end
 
 (*)(a::DD,b::TD) = (*)(b,a)
 
+#=
 function (*)(a::TD,b::Float64)
   p0,q0 = eftProd2(a.hi, b)
-  p1,q1 = 0,0
   p2,q2 = eftProd2(a.md, b)
-  p4,q4 = 0,0
   p5,q5 = eftProd2(a.lo, b)
 
   # Start Accumulation
@@ -243,7 +242,8 @@ function (*)(a::TD,b::Float64)
 
   TD(p0,p1,s0)
 end
-
+=#
+(*)(a::TD,b::Float64) = (*)(a,DD(b,0.0))
 (*)(a::Float64,b::TD) = (*)(b,a)
 
 # reciprocation
