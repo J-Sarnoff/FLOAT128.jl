@@ -7,13 +7,20 @@ function log1p(x::DD)
     ypowj = y
     s = y
     z = x
-    j = 3
+    j = 3.0
     ypowj *= yy
-    while (s != z) && j<130
+    for i in 1:35
        z = s
        k = ypowj / j
        s += k
-       j += 2
+       j += 2.0
+       ypowj *= yy
+    end
+    while (s != z) && j<80
+       z = s
+       k = ypowj / j
+       s += k
+       j += 2.0
        ypowj *= yy
     end
     mulby2(s)
