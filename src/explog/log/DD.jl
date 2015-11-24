@@ -1,14 +1,19 @@
 # 0 < x <= 1
 function log1p(x::DD)
-    j = 1
+function log1p(x::DD)
     y = x / (2.0+x)
-    s = zero(DD)
+    yy = y * y
+    ypowj = y
+    s = y
     z = x
+    j = 3
+    ypowj *= yy
     while (s != z) && j<130
        z = s
-       k = y^j / j
+       k = ypowj / j
        s += k
        j += 2
+       ypowj *= yy
     end
     mulby2(s)
 end
@@ -28,6 +33,7 @@ function logGT1(x::DD)
   log2pow + log1plus
 end
 
+#=
 # 2 < x
 function logGT2(x::DD)
   fr,ex = frexp(x)  # here  [0.5 <= fr < 1.0)
@@ -36,6 +42,7 @@ function logGT2(x::DD)
   log1minus = log(fr)   
   log2pow + log1minus
 end
+=#
 
 function log(x::DD)
    if DD(1.0, -5.0e-17) <= x <= DD(1.0, 5.0e-17)
