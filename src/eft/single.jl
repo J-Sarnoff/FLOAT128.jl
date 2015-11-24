@@ -1,10 +1,10 @@
-@inline function eftSquare(a::AbstractFloat)
+@inline function eftSquare(a::Float64)
     x = a * a
     y = fma(a, a, -x)
     x,y
 end
 
-function eftCube(a::AbstractFloat)
+function eftCube(a::Float64)
     p = a*a; e = fma(a, a, -p)
     x = p*a; p = fma(p, a, -x)
     y = e*a
@@ -13,7 +13,7 @@ end
 
 # sassafrass! 'y' must be negated to get the right result
 #
-@inline function eftRecip(a::AbstractFloat)
+@inline function eftRecip(a:Float64)
      x = one(Float64)/a
      y = -(fma(x,a,-1.0)/a)
      x,y
@@ -24,14 +24,14 @@ end
    Augmented precision square roots, 2-D norms and discussion on correctly reounding sqrt(x^2 + y^2)
    by Nicolas Brisebarre, Mioara Joldes, Erik Martin-Dorel, Hean-Michel Muller, Peter Kornerup
 =#
-@inline function eftSqrt(a::AbstractFloat)
+@inline function eftSqrt(a::Float64)
      x = sqrt(a)
      t = fma(x,-x,a)
      y = t / (x*2.0)
      x,y
 end     
      
-@inline function eftRecipSqrt(a::AbstractFloat)
+@inline function eftRecipSqrt(a::Float64)
      r = 1.0/a
      x = sqrt(r)
      t = fma(x,-x,r)
