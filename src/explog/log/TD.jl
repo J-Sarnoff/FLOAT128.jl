@@ -8,7 +8,7 @@ function log1p(x::TD)
     z = x
     j = 3.0
     ypowj *= yy
-    for i in 1:105
+    for i in 1:100
        z = s
        k = ypowj / j
        s += k
