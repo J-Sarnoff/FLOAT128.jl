@@ -74,6 +74,7 @@ include("hyptrig/TD.jl")
 include("hyptrig/inv/DD.jl")
 
 # io
+include("io/nearest.jl")
 include("io/DD.jl")
 include("io/TD.jl")
 
