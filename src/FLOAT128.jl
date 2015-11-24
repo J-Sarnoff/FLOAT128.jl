@@ -60,8 +60,10 @@ include("arith/round/TD.jl")
 include("powroot/DD.jl")
 
 # log, exp
-include("exp/DD.jl")
-include("exp/TD.jl")
+include("explog/log/DD.jl")
+include("explog/log/TD.jl")
+include("explog/exp/DD.jl")
+include("explog/exp/TD.jl")
 
 # trig, inverse fns
 include("trig/DD.jl")
