@@ -1,5 +1,6 @@
 # 0 < x <= 1
-function log1p(x::DD)
+# approximate
+# use log1p(TD(x) for accuracy
 function log1p(x::DD)
     y = x / (2.0+x)
     yy = y * y
@@ -18,9 +19,11 @@ function log1p(x::DD)
     mulby2(s)
 end
 
+#=
 # 0.0 < x <= 0.5
 function log1m(x::DD)
 end
+=#
 
 # 1 < x 
 function logGT1(x::DD)
