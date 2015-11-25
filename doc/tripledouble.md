@@ -4,6 +4,10 @@ Relative timings for TD with respect to DD
 
 | operation  | op(F64,F64) | op(DD,F64) | op(DD,DD) | op(F64,TD) | op(DD,TD) | op(TD,TD) |
 |------------|-------------|------------|-----------|------------|-----------|-----------|
+| + rel time | 1           | 2         | 3      | 8        |8      |       8|
+| + allocs   | 0           | 0          | 0         | 0          |0          | 0 |
+|  |            |      |        |        |       |       |
 | * rel time | 1           | 20         | 24        | 91         |140        |       260 |
-| * allocs   | 0           | 0          | 0         | 0          |0          | 9, 176byte |
+| * allocs   | 0           | 0          | 0         | 0          |0          | 9, 176 bytes |
+
 
