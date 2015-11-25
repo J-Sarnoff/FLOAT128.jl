@@ -151,9 +151,9 @@ function (sqr)(a::TD)
   TD(p0,p1,p2)
 end
 
+#=
 # this is less rigorous multiply method -- the
 # low order bits are dropped converting to DD
-
 function (*){T<:TD}(a::T,b::T)
   p0,q0 = eftProd2(a.hi, b.hi)
   p1,q1 = eftProd2(a.hi, b.md)
@@ -179,6 +179,11 @@ function (*){T<:TD}(a::T,b::T)
   s1 += a.md*b.lo + a.lo*b.md + q0 + q3 + q4 + q5
   p0,p1,s0 = renormAs3(p0, p1, s0, s1+s2)
   TD(p0,p1,s0)
+end
+=#
+function (*){T<:TD}(a::T,b::T)
+     c = a.lo*b + a.md*b
+     c + a.hi*b
 end
 
 
