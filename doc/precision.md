@@ -1,5 +1,5 @@
 # FLOAT128.jl  
-### *(work in progress -- incomplete)*
+### *(work in progress -- incomplete and out of date)*
 100+ valid significand bits for elementary functions with conventionally small values.
 
   relative errors (*max found with 20,000 random double-double values each function*)
@@ -20,7 +20,6 @@
 | exp  | -15..15   | 104 | 4.9e-32 |2.75  | 0.35 |
 | exp  | -300..-15,15..300   | 103 | 5.2e-32 |2.35| 0.66 |
 |      |             |     |       | |
-| log is BROKEN |  1..64G   | 105 | 1.9e-33 |4.8 | 0.6 |
 |      |             |     |       | |
 | sin, cos  | -2pi..2pi   | 106 | 1.2e-32 | 1.9 | 0.2 |
 | tan  | -2pi..2pi   | 104 | 4.8e-32 | 2.3 | 0.4 |
