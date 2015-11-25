@@ -9,5 +9,8 @@ Relative timings for TD with respect to DD (fma emulated)
 |  |            |      |        |        |       |       |
 | * rel time | 1           | 20         | 24        | 91         |140        |       235 |
 | * allocs   | 0           | 0          | 0         | 0          |0          | 0 |
+|  |            |      |        |        |       |       |
+| / rel time | 1           | 40         | 40        | --         |1--        |       300 |
+| / allocs   | 0           | 0          | 0         | 0          |0          | 8, 160 bytes |
 
 
