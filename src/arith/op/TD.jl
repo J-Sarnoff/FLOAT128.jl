@@ -304,6 +304,25 @@ function (/)(a::TD, b::TD)
   TD(q0, q1, q2)
 end
 
+function (/)(a::TD, b::DD)
+
+  q0 = a.hi / b.hi
+  r = a - (b * q0)
+  q1 = r.hi / b.hi
+  r -= (b * q1)
+  q2 = r.hi / b.hi
+  r -= (b * q2)
+  q3 = r.hi / b.hi
+  r  = r - (b * q3)
+  q3 += r.hi / b.hi
+
+  q0,q1,q2 = renormAs3(q0, q1, q2, q3)
+
+  TD(q0, q1, q2)
+end
+
+(/)(a::TD, b::Float64) = (/)(a,DD(b))
+
 
 # powers
 
