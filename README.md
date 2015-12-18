@@ -28,7 +28,7 @@
      functions run ~4x; with other values they are not yet fast.  A next step is to use
      indexed sequences of polynomial approximations in essential regions of a domain:
  
-        (a) subdivde the interval, a unit inberval subdivides into 64 parts
+        (a) subdivde the interval, a unit interval subdivides into 64 parts
         (b) widen subdivisions at both ends to quell noise (e.g. ±1/262_144)
         (c) use a near minimax polynomial approximations, fitting a polynomial 
             of degree 14 or fitting a rational polynomial with numerator and 
