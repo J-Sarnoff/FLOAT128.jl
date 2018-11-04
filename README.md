@@ -1,11 +1,9 @@
 ## FLOAT128.jl 
 
-######*Bringing you 100 bit arithmetic and 100 bit elementary functions, accurate to ~0.52 ulp.*
+###### Bringing you 100 bit arithmetic and 100 bit elementary functions, accurate to ~0.52 ulp.*
 ```ruby
                          Jeffrey Sarnoff            2015-Nov-20
 ```
-##
-######        **(work in progress)**
 
 
      Internal arithmetic is right to 105 bits, elementary functions to 102 bits.
