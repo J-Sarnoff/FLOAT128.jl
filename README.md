@@ -39,18 +39,10 @@
             reppresentable as a Float128 value: refit the approximation fixing one
             or a few coeffs and repeat.  Each time fix more coeffs or shake+refix
             one already fixed. And so obtain a workable approximant.
-
-```
-                  This is not the best way to generate approximations;
-                  and rapt inattention is always worth considering.
-
-                  My amastery of this acknowledged, there are Maple
-                  procdures and Sollya functions written do this,
-                  making making machine maths become better done. 
-```
+                 
 
 
-Float128 is desgined to glean good advantage from processor supported fma.
+Float128 works best using fma (floating-point multiply accumulate) instructions.
 
     
 
